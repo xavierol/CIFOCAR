@@ -1,7 +1,7 @@
 <?php
 	class UsuarioModel{
 		//PROPIEDADES
-		public $id, $user, $password, $nombre, $privilegio=100, $admin=0, $email, $imagen='', $fecha;
+	    public $id, $user, $password, $nombre, $privilegio=100, $email, $admin=0, $imagen='', $fecha;
 			
 		//METODOS
 		//guarda el usuario en la BDD

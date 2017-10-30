@@ -27,7 +27,7 @@
 		<?php }
 		
 		
-		//PONE LA INFO DEL USUARIO IDENTIFICADO Y EL FORMULARIOD E LOGOUT
+		//PONE LA INFO DEL USUARIO IDENTIFICADO Y EL FORMULARIO DE LOGOUT
 		public static function logout($usuario){	?>
 			<div id="logout">
 				<span>
@@ -47,15 +47,24 @@
 		//PONE EL MENU DE LA PAGINA
 		public static function menu($usuario){ ?>
 			<nav>
+				<?php if($usuario && $usuario->privilegio==1){	//pone el menú del responsable de compras?>
 				<ul class="menu">
 					<li><a href="index.php">Inicio</a></li>
-					<li><a href="index.php?controlador=Usuario&operacion=registro">Registro</a></li>
+					<li><a href="index.php?controlador=Receta&operacion=nueva">Nueva Vehiculo</a></li>
 				</ul>
-				<?php 
-				//pone el menú del administrador
-				if($usuario && $usuario->admin){	?>
+				<?php }?>
+				
+				<?php if($usuario && $usuario->privilegio==2){	//pone el menú del vendedor?>
 				<ul class="menu">
-					<li><a href="#">ADMIN</a></li>
+					<li><a href="index.php">Inicio</a></li>
+					<li><a href="index.php?controlador=Usuario&operacion=registro">Cambio estado vehículo</a></li>
+				</ul>
+				<?php }?>
+				
+				<?php 
+				if($usuario && $usuario->admin){	//pone el menú del administrador?>
+				<ul class="menu">
+    				<li><a href="index.php?controlador=Receta&operacion=listar">Crear usuari</a></li>
 				</ul>
 							
 				<?php }	?>
