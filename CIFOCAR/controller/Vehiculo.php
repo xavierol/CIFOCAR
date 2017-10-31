@@ -1,6 +1,6 @@
 <?php
-	//CONTROLADOR USUARIO 
-	// implementa las operaciones que puede realizar el usuario
+	//CONTROLADOR VEHÍCULO
+	// implementa las operaciones que puede realizar el usuario con los vehículos
 	class Vehiculo extends Controller{
 
 		//PROCEDIMIENTO PARA REGISTRAR UN VEHICULO
@@ -40,9 +40,9 @@
 				$r->marca = $conexion->real_escape_string($_POST['marca']);
 
 				
-				//guardar la receta en BDD
+				//guardar el vehículo en BDD
 				if(!$r->guardar())
-					throw new Exception('No se pudo registrar la receta');
+					throw new Exception('No se pudo registrar el vehículo');
 				
 				//mostrar la vista de éxito
 				$datos = array();
@@ -52,10 +52,10 @@
 			}
 		}
 		
-		//PROCEDIMIENTO PARA LISTAR TODAS LAS RECETAS PARA ADMIN
+		//PROCEDIMIENTO PARA LISTAR TODAS LAS VEHÍCULOS PARA ADMIN
 		
 		public function listar(){
-		    //recuperar los vehiculos
+		    //recuperar los vehículos
 		    $this->load('model/VehiculoModel.php');
 		    $vehiculos = VehiculoModel::getVehiculo();
 		    
@@ -73,26 +73,26 @@
 		
 		
 		
-		//PROCEDIMIENTO PARA VER LOS DETALLES DE UNA RECETA
+		//PROCEDIMIENTO PARA VER LOS DETALLES DE UN VEHÍCULO
 		
 		public function ver($id=0){
 		    //comprobar que llega la ID
 		    if(!$id)
-		        throw new Exception('No se ha indicado la ID de la receta');
+		        throw new Exception('No se ha indicado la ID del vehículo');
 		        
-		        //recuperar la receta con la ID seleccionada
-		        $this->load('model/RecetaModel.php');
-		        $receta = RecetaModel::getReceta($id);
+		        //recuperar el vehículo con la ID seleccionada
+		        $this->load('model/VehiculoModel.php');
+		        $vehiculo = VehiculoModel::getVehiculo($id);
 		        
-		        //comprobar que la receta existe
-		        if(!$receta)
-		            throw new Exception('No existe la receta con código '.$id);
+		        //comprobar que el vehículo existe
+		        if(!$vehiculo)
+		            throw new Exception('No existe el vehículo con código '.$id);
 		            
 		            //cargar la vista de detalles
 		            $datos = array();
 		            $datos['usuario'] = Login::getUsuario();
-		            $datos['receta'] = $receta;
-		            $this->load_view('view/recetas/detalles.php', $datos);
+		            $datos['vehiculo'] = $vehiculo;
+		            $this->load_view('view/vehiculo/detalles.php', $datos);
 		}
 		
 		public function editar($id=0){
@@ -102,47 +102,57 @@
 		        
 		        //comprobar que me llega un id
 		        if(!$id)
-		            throw new Exception('No se indicó la id de la receta');
+		            throw new Exception('No se indicó la id del vehículo');
 		            
-		            //recuperar la receta con esa id
-		            $this->load('model/RecetaModel.php');
-		            $receta = RecetaModel::getReceta($id);
+		            //recuperar el vehículo con ese id
+		            $this->load('model/VehiculoModel.php');
+		            $vehiculo = VehiculoModel::getVehiculo($id);
 		            
-		            //comprobar que existe la receta
-		            if(!$receta)
-		                throw new Exception('No existe la receta');
+		            //comprobar que existe el vehículo
+		            if(!$vehiculo)
+		                throw new Exception('No existe el vehículo');
 		                
 		                //si no me están enviando el formulario
 		                if(empty($_POST['modificar'])){
 		                    //poner el formulario
 		                    $datos = array();
 		                    $datos['usuario'] = Login::getUsuario();
-		                    $datos['receta'] = $receta;
-		                    $this->load_view('view/recetas/modificar.php', $datos);
+		                    $datos['vehiculo'] = $vehiculo;
+		                    $this->load_view('view/vehiculo/modificar.php', $datos);
 		                    
 		                }else{
 		                    //en caso contrario
 		                    $conexion = Database::get();
 		                    //actualizar los campos de la receta con los datos POST
-		                    $receta->nombre = $conexion->real_escape_string($_POST['nombre']);
-		                    $receta->descripcion = $conexion->real_escape_string($_POST['descripcion']);
-		                    $receta->ingredientes = $conexion->real_escape_string($_POST['ingredientes']);
-		                    $receta->dificultad = $conexion->real_escape_string($_POST['dificultad']);
-		                    $receta->tiempo = intval($_POST['tiempo']);
+		                    $vehiculo->matricula = $conexion->real_escape_string($_POST['matricula']);
+		                    $vehiculo->modelo = $conexion->real_escape_string($_POST['modelo']);
+		                    $vehiculo->color = $conexion->real_escape_string($_POST['color']);
+		                    $vehiculo->precio_venta = $conexion->real_escape_string($_POST['precio_venta']);
+		                    $vehiculo->precio_compra = $conexion->real_escape_string($_POST['precio_compra']);
+		                    $vehiculo->kms = $conexion->real_escape_string($_POST['kms']);
+		                    $vehiculo->caballos = $conexion->real_escape_string($_POST['caballos']);
+		                    $vehiculo->fecha_venta = $conexion->real_escape_string($_POST['fecha_venta']);
+		                    $vehiculo->estado = $conexion->real_escape_string($_POST['estado']);
+		                    $vehiculo->any_matriculacion = $conexion->real_escape_string($_POST['any_matriculacion']);
+		                    $vehiculo->detalles = $conexion->real_escape_string($_POST['detalles']);
+		                    $vehiculo->imagen = $conexion->real_escape_string($_POST['imagen']);
+		                    $vehiculo->vendedor = $conexion->real_escape_string($_POST['vendedor']);
+		                    $vehiculo->marca = $conexion->real_escape_string($_POST['marca']);
+		                   
 		                    
-		                    //modificar la receta en la BDD
+		                    //modificar el vehículo en la BDD
 		                    if(!$receta->actualizar())
 		                        throw new Exception('No se pudo actualizar');
 		                        
 		                        //cargar la vista de éxito
 		                        $datos = array();
 		                        $datos['usuario'] = Login::getUsuario();
-		                        $datos['mensaje'] = "Datos de la receta <a href='index.php?controlador=Receta&operacion=ver&parametro=$receta->id'>'$receta->nombre'</a> actualizados correctamente.";
+		                        $datos['mensaje'] = "Datos del vehiculo <a href='index.php?controlador=Vehiculota&operacion=ver&parametro=$vehiculo->id'>'$vehiculo->marca'</a> actualizados correctamente.";
 		                        $this->load_view('view/exito.php', $datos);
 		                }
 		}
 		
-		//PROCEDIMIENTO PARA BORRAR UNA RECETA
+		//PROCEDIMIENTO PARA BORRAR UN VEHÍCULO
 		public function borrar($id=0){
 		    //comprobar que el usuario sea admin
 		    if(!Login::isAdmin())
@@ -150,29 +160,29 @@
 		        
 		        //comprobar que se ha indicado un id
 		        if(!$id)
-		            throw new Exception('No se indicó la receta a borrar');
+		            throw new Exception('No se indicó el vehículo a borrar');
 		            
-		            $this->load('model/RecetaModel.php');
+		            $this->load('model/VehiculoModel.php');
 		            
 		            //si no me envian el formulario de confirmación
 		            if(empty($_POST['confirmarborrado'])){
 		                //recuperar la receta con esa id
-		                $receta = RecetaModel::getReceta($id);
+		                $vehiculo = VehiculoModel::getVehiculo($id);
 		                
-		                //comprobar que existe dicha receta
-		                if(!$receta)
-		                    throw new Exception('No existe la receta con id '.$id);
+		                //comprobar que existe dicha vehiculo
+		                if(!$vehiculo)
+		                    throw new Exception('No existe el vehículo con id '.$id);
 		                    
 		                    //mostrar el formularion de confirmación junto con los datos de la receta
 		                    $datos = array();
 		                    $datos['usuario'] = Login::getUsuario();
-		                    $datos['receta'] = $receta;
-		                    $this->load_view('view/recetas/confirmarborrado.php', $datos);
+		                    $datos['vehiculo'] = $vehiculo;
+		                    $this->load_view('view/vehiculo/confirmarborrado.php', $datos);
 		                    
 		                    //si me envian el formulario...
 		            }else{
 		                //borramos la receta de la BDD
-		                if(!RecetaModel::borrar($id))
+		                if(!VehiculoModel::borrar($id))
 		                    throw new Exception('No se pudo borrar, es posible que se haya borrado ya.');
 		                    
 		                    //cargar la vista de éxito

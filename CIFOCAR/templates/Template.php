@@ -10,8 +10,8 @@
 					</a>
 				</figure>
 				<hgroup>
-					<h1>RMF - RobS Micro Framework</h1>
-					<h2>Para el desarrollo de aplicaciones web</h2>
+					<h1>CIFOCAR</h1>
+					<h2>Aplicación de gestión de compraventa de vehículos</h2>
 				</hgroup>
 			</header>
 		<?php }
