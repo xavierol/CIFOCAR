@@ -15,12 +15,7 @@ class VehiculoModel{
         
         return Database::get()->query($consulta);
     }
-    
-    
-    
-    
-    
-    
+      
     //PARA EL LISTADO DE VEHICULOS
     
     //método que me recupere todas los vehiculos
@@ -44,18 +39,14 @@ class VehiculoModel{
         //retornar la lista de RecetaModel
         return $lista;
     }
+  
     
     
-    
-    
-    
-    
-    
-    //Método que me recupera una receta a partir de su ID
-    //PROTOTIPO: public static RecetaModel getReceta(number $id=0);
-    public static function getReceta($id=0){
+    //Método que me recupera un vehiculo a partir de su ID
+    //PROTOTIPO: public static VehiculoModel getVehiculo(number $id=0);
+    public static function getVehiculo($id=0){
         //preparar consulta
-        $consulta = "SELECT * FROM recetas WHERE id=$id;";
+        $consulta = "SELECT * FROM vehiculos WHERE id=$id;";
         
         //ejecutar consulta
         $conexion = Database::get();
@@ -65,13 +56,13 @@ class VehiculoModel{
         if(!$resultado) return null;
         
         //convertir el resultado en un objeto RecetaModel
-        $receta = $resultado->fetch_object('RecetaModel');
+        $vehiculo = $resultado->fetch_object('VehiculoModel');
         
         //liberar memoria
         $resultado->free();
         
         //devolver el resultado
-        return $receta;
+        return $vehiculo;
     }
     
     //Método que actualiza los datos del usuario en la BDD

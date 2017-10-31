@@ -4,7 +4,7 @@ require '../../libraries/database_library.php';
 require '../VehiculoModel.php';
 
 //TEST GUARDADO
-
+/*
 $coche = new VehiculoModel();
 
 $coche->matricula = '1234RRR';
@@ -20,10 +20,15 @@ $coche->marca = 'ford';
 
 if($coche->guardar()) echo 'EXITO';
 
+*/
+//TEST RECUPERAR POR ID
+//var_dump(VehiculoModel::getVehiculos(2));
+$vehiculo = VehiculoModel::getVehiculo(5);
+var_dump($vehiculo);
 
 //TEST RECUPERAR
 //var_dump(VehiculoModel::getVehiculos());
-
+/*
 $vehiculos = VehiculoModel::getVehiculos();
 
 foreach($vehiculos as $m){
@@ -39,7 +44,7 @@ foreach($vehiculos as $m){
     echo "<p>$m->marca</p>";
 }
 
-
+*/
 
 //TEST ACTUALIZAR
 //echo MarcaModel::actualizar('Citroën','citroen');
