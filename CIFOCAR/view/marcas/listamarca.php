@@ -18,20 +18,28 @@
 		?>
 		
 		<section id="content">
-			<h2>Nueva marca</h2>
+			<h2>Listado de Marcas</h2>
+			
+			 <p>Hay <?php echo sizeof($marcas); ?> Marcas en la guardadas.</p>
+		
+            <table>
+                <tr>
+                    <th>Id</th>
+                    <th>marca</th>
+                </tr>
+                <?php
+                foreach($marca as $marca){
+                    echo "<tr>";
+                        echo "<td>$marca->id</td>";
+                        echo "<td>$marca->marca</td>";
+                        
+                        echo "</tr>";
+                }
+                ?>
+            </table>
 			<form method="post" enctype="multipart/form-data" autocomplete="off">
 				
-										
-				<label>Marca:</label>
-				<input type="text" name="marca" required="required"/><br/>
- 
- //Para la lista de marcas, poner la tabla
- 
- 
-				<input type="submit" name="guardar" value="guardar"/><br/>
-			</form>
-		</section>
-		
+			
 		<?php Template::footer();?>
     </body>
 </html>

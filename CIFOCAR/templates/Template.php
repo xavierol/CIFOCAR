@@ -61,9 +61,10 @@
 				<?php if($usuario && $usuario->privilegio==2){	//pone el menú del vendedor?>
 				<ul class="menu">
 					<li><a href="index.php">Inicio</a></li>
-					<li><a href="index.php?controlador=Usuario&operacion=registro">Cambio estado vehículo</a></li>
-					<li><a href="index.php?controlador=Marca&operacion=guardar">Lista Vehiculo</a></li>
+					
+					<li><a href="index.php?controlador=Vehiculo&operacion=listar">Lista Vehiculo</a></li>
 					<li><a href="index.php?controlador=Usuario&operacion=registro">Datos personales</a></li>
+					
 				</ul>
 				<?php }?>
 				

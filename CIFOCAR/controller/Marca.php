@@ -6,8 +6,7 @@
 	    
 		//PROCEDIMIENTO PARA REGISTRAR UNA MARCA
 		public function nueva(){
-
-			//si no llegan los datos a guardar
+        //si no llegan los datos a guardar
 			if(empty($_POST['guardar'])){
 			    
 				//mostramos la vista del formulario
@@ -44,17 +43,17 @@
 		
 		public function listar(){
 		    //recuperar las marcas
-		    $this->load('model/MarcaModel.php');
-		    $marcas = MarcaModel::getMarca();
-		    
+		      $this->load('model/MarcaModel.php');
+		      $marcas=MarcaModel::getMarcas();
 		    //cargar la vista del listado
 		    $datos = array();
 		    $datos['usuario'] = Login::getUsuario();
 		    $datos['marcas'] = $marcas;
 		    
-		    if(Login::isCompras())
-		        $this->load_view('view/marcas/listamarca.php', $datos);
-		       throw new Exception ("Debes de ser Compras");
+		    //if(Login::isCompras())
+		        
+		     $this->load_view('view/marcas/listamarca.php', $datos);
+		       //throw new Exception ("Debes de ser Compras");
 		}
 		
 		
