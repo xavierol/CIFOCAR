@@ -20,21 +20,21 @@
 		?>
 
 		<section id="content">
-			<h2>Presentación</h2>
-			<p>Este framework para PHP ha sido desarrollado con fines docentes para el CP de 
-			<b>desarrollo de aplicaciones con tecnologías web</b> (IFCD0210) que imparte <b>Robert Sallent</b>.</p>
+			<h2>CIFOCAR COMPRAMOS Y VENDEMOS</h2>
+			<p>CIFOCAR es una empresa que cuenta con la experiencia de 49 años en el sector. 
+			<b>nuestros métodos son innovadores </b> Esta aplicación interna pretende agilizar nuestro trabajo diario</b>.</p>
 			
-			<p>Es un ejemplo de <b>arquitectura modelo-vista-controlador con controlador frontal</b> para entender los
-			conceptos y poder trabajar. Además combina una parte de administración sencilla mediante interfaz gráfica, 
-			como si se tratara de un CMS, para lo que requiere de una base de datos.</p>
+			<p>Hay una serie de operaciones<b>Compra, venta y administración del sistema</b> para entender el sistema
+			en todos sus campos de actuación, existe un manual de esta aplicación sencilla. Disponemos de personal cualificado
+			para ayudar a la mejora de éste.Todas las aportaciones se consideran importantes para nosotros.</p>
 			
-			<p>A lo largo del curso se desarrollan varios proyectos de ejemplo usando este pequeño framework,
-			para ir entendiendo los conceptos básicos comunes a este tipo de herramientas de trabajo. 
-			En el mismo curso, en el último módulo, utilizamos también CodeIgniter para desarrollos más complejos
-			usando la misma arquitectura.</p>
+			<p>Como administrador puedes manejar usuadios y la lista de coches, tienes una serie de opciones a elegir. Podrás
+			listar, modificar y borrar información de los campos arriba reseñadosherramientas de trabajo.</p>
 			
-			<p><b>NO ES 100% SEGURO</b>, así que no se debe usar para desarrollos en entornos de producción. Para cualquier duda
-			o consulta,	contactad conmigo mediante twitter.</p>
+			<p><b>Es una aplicación interna</b>,cualquier problema debería ser comunicado a la gerencia de la empresa para mejorarla
+			se puedn dirigir a la oficina.</p>
+			
+			<img alt="Robs Micro Framework logo" src="images/logos/logocifo.png" />
 		</section>
 		
 		<?php Template::footer();?>

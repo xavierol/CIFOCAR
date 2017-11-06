@@ -15,7 +15,8 @@ class VehiculoModel{
         
         return Database::get()->query($consulta);
     }
-      
+         
+  
     //PARA EL LISTADO DE VEHICULOS
     
     //método que me recupere todas los vehiculos
@@ -65,14 +66,22 @@ class VehiculoModel{
         return $vehiculo;
     }
     
-    //Método que actualiza los datos del usuario en la BDD
+    //Método que actualiza los datos del vehículo en la BDD
     //PROTOTIPO: public boolean actualizar();
     public function actualizar(){
-        $consulta = "UPDATE recetas
-                           SET nombre='$this->nombre',
-                              descripcion='$this->descripcion',
-                              ingredientes='$this->ingredientes',
-                              dificultad='$this->dificultad',
+        $consulta = "UPDATE vehiculos
+                           SET matricula='$this->matricula',
+                              modelo='$this->modelo',
+                              color='$this->color',
+                              precio_venta='$this->precio_venta',
+                              precio_compra=$this->precio_compra',
+                              fecha_venta='$this->fecha_venta',
+                              estado='$this->estado',
+                              any_matriculacion='$this->any_matriculacion',
+                              detalles=$this->detalles',
+                              imagem='$this->imagen',
+                              vendedor='$this->vendedor',
+                              marca='$this->marca',
                                 tiempo=$this->tiempo
                           WHERE id=$this->id;";
         return Database::get()->query($consulta);
@@ -81,7 +90,7 @@ class VehiculoModel{
     //Método que borra una receta de la BDD (estático)
     //PROTOTIPO: public static boolean borrar(int $id)
     public static function borrar($id){
-        $consulta = "DELETE FROM recetas
+        $consulta = "DELETE FROM vehiculos
                          WHERE id=$id;";
         
         $conexion = Database::get(); //conecta

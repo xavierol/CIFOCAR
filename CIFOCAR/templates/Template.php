@@ -6,7 +6,7 @@
 			<header>
 				<figure>
 					<a href="index.php">
-						<img alt="Robs Micro Framework logo" src="images/logos/logo.png" />
+						<img alt="Robs Micro Framework logo" src="images/logos/otrocifo.png" />
 					</a>
 				</figure>
 				<hgroup>
@@ -50,7 +50,11 @@
 				<?php if($usuario && $usuario->privilegio==1){	//pone el menú del responsable de compras?>
 				<ul class="menu">
 					<li><a href="index.php">Inicio</a></li>
-					<li><a href="index.php?controlador=Receta&operacion=nueva">Nueva Vehiculo</a></li>
+					<li><a href="index.php?controlador=Vehiculo&operacion=nueva">Nuevo Vehículo</a></li>
+					<li><a href="index.php?controlador=Marca&operacion=nueva">Nueva Marca</a></li>
+					<li><a href="index.php?controlador=Marca&operacion=listar">Lista Matrículas</a></li>
+					<li><a href="index.php?controlador=Usuario&operacion=registro">Datos personales</a></li>
+					
 				</ul>
 				<?php }?>
 				
@@ -58,18 +62,23 @@
 				<ul class="menu">
 					<li><a href="index.php">Inicio</a></li>
 					<li><a href="index.php?controlador=Usuario&operacion=registro">Cambio estado vehículo</a></li>
+					<li><a href="index.php?controlador=Marca&operacion=guardar">Lista Vehiculo</a></li>
+					<li><a href="index.php?controlador=Usuario&operacion=registro">Datos personales</a></li>
 				</ul>
 				<?php }?>
 				
 				<?php 
 				if($usuario && $usuario->admin){	//pone el menú del administrador?>
 				<ul class="menu">
-    				<li><a href="index.php?controlador=Receta&operacion=listar">Crear usuari</a></li>
+    				<li><a href="index.php?controlador=Usuario&operacion=registro">Crear usuari</a></li>
+    				<li><a href="index.php?controlador=Vehiculo&operacion=guardar">Vehiculos</a></li>
 				</ul>
 							
 				<?php }	?>
 			</nav>
 		<?php }
+		
+		
 		
 		//PONE EL PIE DE PAGINA
 		public static function footer(){	?>

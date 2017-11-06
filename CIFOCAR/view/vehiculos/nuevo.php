@@ -3,7 +3,7 @@
 	<head>
 		<base href="<?php echo Config::get()->url_base;?>" />
 		<meta charset="UTF-8">
-		<title>Registro de usuarios</title>
+		<title>Nuevo coche</title>
 		<link rel="stylesheet" type="text/css" href="<?php echo Config::get()->css;?>" />
 	</head>
 	
@@ -13,6 +13,8 @@
 
 			if(!$usuario) Template::login(); //pone el formulario de login
 			else Template::logout($usuario); //pone el formulario de logout
+			
+			//Tenemos que modificar el template para que nos salga distinto, nada más el eres lo que sea 
 			
 			Template::menu($usuario); //pone el menú
 		?>

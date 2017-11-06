@@ -3,6 +3,7 @@
 	// implementa las operaciones que puede realizar el usuario con los vehículos
 	class Vehiculo extends Controller{
 
+	       
 		//PROCEDIMIENTO PARA REGISTRAR UN VEHICULO
 		public function nueva(){
 
@@ -12,36 +13,37 @@
 				//mostramos la vista del formulario
 				$datos = array();
 				$datos['usuario'] = Login::getUsuario();
-// 				$datos['max_image_size'] = Config::get()->user_image_max_size;
 				$this->load_view('view/vehiculos/nuevo.php', $datos);
+				
 			
 			//si llegan los datos por POST
-			}else{
+			}
+			else{
 				//crear una instancia de Vehiculo
 				$this->load('model/VehiculoModel.php');
-				$r = new VehiculoModel();
+				$v = new VehiculoModel();
 				$conexion = Database::get();
 				
 				//tomar los datos que vienen por POST
 				//real_escape_string evita las SQL Injections
-				$r->matricula = $conexion->real_escape_string($_POST['matricula']);
-				$r->modelo = $conexion->real_escape_string($_POST['modelo']);
-				$r->color = $conexion->real_escape_string($_POST['color']);
-				$r->precio_venta = $conexion->real_escape_string($_POST['precio_venta']);
-				$r->precio_compra = $conexion->real_escape_string($_POST['precio_compra']);
-				$r->kms = $conexion->real_escape_string($_POST['kms']);
-				$r->caballos = $conexion->real_escape_string($_POST['caballos']);
-				$r->fecha_venta = $conexion->real_escape_string($_POST['fecha_venta']);
-				$r->estado = $conexion->real_escape_string($_POST['estado']);
-				$r->any_matriculacion = $conexion->real_escape_string($_POST['any_matriculacion']);
-				$r->detalles = $conexion->real_escape_string($_POST['detalles']);
-				$r->imagen = $conexion->real_escape_string($_POST['imagen']);
-				$r->vendedor = $conexion->real_escape_string($_POST['vendedor']);
-				$r->marca = $conexion->real_escape_string($_POST['marca']);
+				$v->matricula = $conexion->real_escape_string($_POST['matricula']);
+				$v->modelo = $conexion->real_escape_string($_POST['modelo']);
+				$v->color = $conexion->real_escape_string($_POST['color']);
+				$v->precio_venta = $conexion->real_escape_string($_POST['precio_venta']);
+				$v->precio_compra = $conexion->real_escape_string($_POST['precio_compra']);
+				$v->kms = $conexion->real_escape_string($_POST['kms']);
+				$v->caballos = $conexion->real_escape_string($_POST['caballos']);
+				$v->fecha_venta = $conexion->real_escape_string($_POST['fecha_venta']);
+				$v->estado = $conexion->real_escape_string($_POST['estado']);
+				$v->any_matriculacion = $conexion->real_escape_string($_POST['any_matriculacion']);
+				$v->detalles = $conexion->real_escape_string($_POST['detalles']);
+				$v->imagen = $conexion->real_escape_string($_POST['imagen']);
+				$v->vendedor = $conexion->real_escape_string($_POST['vendedor']);
+				$v->marca = $conexion->real_escape_string($_POST['marca']);
 
 				
 				//guardar el vehículo en BDD
-				if(!$r->guardar())
+				if(!$v->guardar())
 					throw new Exception('No se pudo registrar el vehículo');
 				
 				//mostrar la vista de éxito
@@ -63,6 +65,8 @@
 		    $datos = array();
 		    $datos['usuario'] = Login::getUsuario();
 		    $datos['vehiculos'] = $vehiculos;
+		  
+		    //Aquí tengo que filtrar el tipo de usuario
 		    
 		    if(Login::isAdmin())
 		        $this->load_view('view/vehiculos/lista_admin.php', $datos);
@@ -98,7 +102,7 @@
 		public function editar($id=0){
 		    //comprobar que el usuario es admin
 		    if(!Login::isAdmin())
-		        throw new Exception('Debes ser admin');
+		        throw new Exception('Debes ser compras');
 		        
 		        //comprobar que me llega un id
 		        if(!$id)
