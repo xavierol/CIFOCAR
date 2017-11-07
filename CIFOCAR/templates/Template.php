@@ -10,8 +10,13 @@
 					</a>
 				</figure>
 				<hgroup>
-					<h1>CIFOCAR</h1>
-					<h2>Aplicación de gestión de compraventa de vehículos</h2>
+				<body>
+				
+				<h1><p style="color:red;">CIFOCAR</h1>
+					
+					<h2><b><p style="color:red;">Aplicación de gestión de compraventa de vehículos<b></h2>
+			</p>
+				</body>
 				</hgroup>
 			</header>
 		<?php }
