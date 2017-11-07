@@ -44,11 +44,11 @@
 		public function listar(){
 		    //recuperar las marcas
 		      $this->load('model/MarcaModel.php');
-		      $marcas=MarcaModel::getMarcas();
+		      $marca=MarcaModel::getMarcas();
 		    //cargar la vista del listado
 		    $datos = array();
 		    $datos['usuario'] = Login::getUsuario();
-		    $datos['marcas'] = $marcas;
+		    $datos['marcas'] = $marca;
 		    
 		    //if(Login::isCompras())
 		        

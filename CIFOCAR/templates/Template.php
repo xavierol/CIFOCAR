@@ -57,7 +57,7 @@
 					<li><a href="index.php">Inicio</a></li>
 					<li><a href="index.php?controlador=Vehiculo&operacion=nueva">Nuevo Vehículo</a></li>
 					<li><a href="index.php?controlador=Marca&operacion=nueva">Nueva Marca</a></li>
-					<li><a href="index.php?controlador=Vehiculo&operacion=listar">Lista Matrículas</a></li>
+					<li><a href="index.php?controlador=Vehiculo&operacion=listar">Lista Vehiculos</a></li>
 					<li><a href="index.php?controlador=Usuario&operacion=registro">Datos personales</a></li>
 					
 				</ul>
@@ -67,7 +67,7 @@
 				<ul class="menu">
 					<li><a href="index.php">Inicio</a></li>
 					
-					<li><a href="index.php?controlador=Vehiculo&operacion=listar">Lista Vehiculo</a></li>
+					<li><a href="index.php?controlador=Vehiculo&operacion=listar">Lista Vehiculos</a></li>
 					<li><a href="index.php?controlador=Usuario&operacion=registro">Datos personales</a></li>
 					
 				</ul>
@@ -77,7 +77,7 @@
 				if($usuario && $usuario->admin){	//pone el menú del administrador?>
 				<ul class="menu">
     				<li><a href="index.php?controlador=Usuario&operacion=registro">Crear usuari</a></li>
-    				<li><a href="index.php?controlador=Vehiculo&operacion=guardar">Vehiculos</a></li>
+    				<li><a href="index.php?controlador=Vehiculo&operacion=listar">Lista Vehiculos</a></li>
 				</ul>
 							
 				<?php }	?>

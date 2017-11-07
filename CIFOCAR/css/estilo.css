@@ -194,6 +194,11 @@ nav ul.menu>li:hover{
 	float: right;
 }
 
+#content table img{
+	height: 20px;
+	width: 20px;
+}
+
 
 /* FOOTER */
 footer{

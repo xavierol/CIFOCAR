@@ -59,7 +59,7 @@
 		public function listar(){
 		    //recuperar los vehículos
 		    $this->load('model/VehiculoModel.php');
-		    $vehiculos = VehiculoModel::getVehiculo();
+		    $vehiculos = VehiculoModel::getVehiculos();
 		    
 		    //cargar la vista del listado
 		    $datos = array();
@@ -69,7 +69,7 @@
 		    //Aquí tengo que filtrar el tipo de usuario
 		    
 		    if(Login::isAdmin())
-		        $this->load_view('view/vehiculos/listavehiculos.php', $datos);
+		        $this->load_view('view/vehiculos/lista_admin.php', $datos);
 		        else
 		            $this->load_view('view/vehiculos/lista.php', $datos);
 		}
@@ -96,7 +96,7 @@
 		            $datos = array();
 		            $datos['usuario'] = Login::getUsuario();
 		            $datos['vehiculo'] = $vehiculo;
-		            $this->load_view('view/vehiculo/detalles.php', $datos);
+		            $this->load_view('view/vehiculos/detalles.php', $datos);
 		}
 		
 		public function editar($id=0){
@@ -122,7 +122,7 @@
 		                    $datos = array();
 		                    $datos['usuario'] = Login::getUsuario();
 		                    $datos['vehiculo'] = $vehiculo;
-		                    $this->load_view('view/vehiculo/modificar.php', $datos);
+		                    $this->load_view('view/vehiculos/modificar.php', $datos);
 		                    
 		                }else{
 		                    //en caso contrario
@@ -151,7 +151,7 @@
 		                        //cargar la vista de éxito
 		                        $datos = array();
 		                        $datos['usuario'] = Login::getUsuario();
-		                        $datos['mensaje'] = "Datos del vehiculo <a href='index.php?controlador=Vehiculota&operacion=ver&parametro=$vehiculo->id'>'$vehiculo->marca'</a> actualizados correctamente.";
+		                        $datos['mensaje'] = "Datos del vehiculo <a href='index.php?controlador=Vehiculo&operacion=ver&parametro=$vehiculo->id'>'$vehiculo->marca'</a> actualizados correctamente.";
 		                        $this->load_view('view/exito.php', $datos);
 		                }
 		}
@@ -181,7 +181,7 @@
 		                    $datos = array();
 		                    $datos['usuario'] = Login::getUsuario();
 		                    $datos['vehiculo'] = $vehiculo;
-		                    $this->load_view('view/vehiculo/confirmarborrado.php', $datos);
+		                    $this->load_view('view/vehiculos/confirmarborrado.php', $datos);
 		                    
 		                    //si me envian el formulario...
 		            }else{
