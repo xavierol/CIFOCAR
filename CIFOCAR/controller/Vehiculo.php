@@ -69,7 +69,7 @@
 		    //Aquí tengo que filtrar el tipo de usuario
 		    
 		    if(Login::isAdmin())
-		        $this->load_view('view/vehiculos/lista_admin.php', $datos);
+		        $this->load_view('view/vehiculos/listavehiculos.php', $datos);
 		        else
 		            $this->load_view('view/vehiculos/lista.php', $datos);
 		}
