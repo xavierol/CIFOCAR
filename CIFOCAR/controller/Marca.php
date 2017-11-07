@@ -70,7 +70,7 @@
 		            
 		            //recuperar la marca con ese id
 		            $this->load('model/MarcaModel.php');
-		            $marca = MarcaloModel::getMarca($id);
+		            $marca = MarcaModel::getMarca($id);
 		            
 		            //comprobar que existe la marca
 		            if(!$marca)

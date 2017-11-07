@@ -48,7 +48,7 @@
                 foreach($vehiculos as $vehiculo){
                     echo "<tr>";
                         echo "<td>$vehiculo->id</td>";
-                        echo "<td>$vehiculo->natricula</td>";
+                        echo "<td>$vehiculo->matricula</td>";
                         echo "<td>$vehiculo->modelo</td>";
                         echo "<td>$vehiculo->color</td>";
                         echo "<td>$vehiculo->precio_ventas</td>";
@@ -62,9 +62,9 @@
                         echo "<td>$vehiculo->imagen</td>";
                         echo "<td>$vehiculo->vendedor</td>";
                         echo "<td>$vehiculo->marca</td>";
-                        echo "<td><a href='index.php?controlador=Vehiculo&operacion=ver&parametro=$receta->id'><img class='boton' src='images/buttons/view.png' alt='ver detalles' title='ver detalles'/></a></td>";
-                        echo "<td><a href='index.php?controlador=Vehiculo&operacion=editar&parametro=$receta->id'><img class='boton' src='images/buttons/edit.png' alt='editar' title='editar'/></a></td>";
-                        echo "<td><a href='index.php?controlador=Vehiculo&operacion=borrar&parametro=$receta->id'><img class='boton' src='images/buttons/delete.png' alt='borrar' title='borrar'/></a></td>";
+                        echo "<td><a href='index.php?controlador=Vehiculo&operacion=ver&parametro=$vehiculo->id'><img class='boton' src='images/buttons/view.png' alt='ver detalles' title='ver detalles'/></a></td>";
+                        echo "<td><a href='index.php?controlador=Vehiculo&operacion=editar&parametro=$vehiculo->id'><img class='boton' src='images/buttons/edit.png' alt='editar' title='editar'/></a></td>";
+                        echo "<td><a href='index.php?controlador=Vehiculo&operacion=borrar&parametro=$vehiculo->id'><img class='boton' src='images/buttons/delete.png' alt='borrar' title='borrar'/></a></td>";
                     echo "</tr>";
                 }
                 ?>
@@ -74,9 +74,3 @@
 	 </body>
 	 <?php Template::footer();?>
 </html>
-		
-		
-		
-		
-		
-		
