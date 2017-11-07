@@ -30,12 +30,9 @@
                     <th>matricula</th>
                     <th>modelo</th>
                     <th>color</th>
-
                     <th>kms</th>
                     <th>caballos</th>
-
                     <th>any_matriculacion</th>
-
                     <th>marca</th>
                     
                     <th colspan="5">Operaciones</th>
@@ -48,12 +45,9 @@
                         echo "<td>$vehiculo->matricula</td>";
                         echo "<td>$vehiculo->modelo</td>";
                         echo "<td>$vehiculo->color</td>";
-
                         echo "<td>$vehiculo->kms</td>";
                         echo "<td>$vehiculo->caballos</td>";
-
                         echo "<td>$vehiculo->any_matriculacion</td>";
-
                         echo "<td>$vehiculo->marca</td>";
                         echo "<td><a href='index.php?controlador=Vehiculo&operacion=ver&parametro=$vehiculo->id'><img class='boton' src='images/buttons/view.png' alt='ver detalles' title='ver detalles'/></a></td>";
                         echo "<td><a href='index.php?controlador=Vehiculo&operacion=editar&parametro=$vehiculo->id'><img class='boton' src='images/buttons/edit.png' alt='editar' title='editar'/></a></td>";

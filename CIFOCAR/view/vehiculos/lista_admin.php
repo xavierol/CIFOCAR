@@ -55,7 +55,7 @@
                     echo "</tr>";
                 }
                 ?>
-            </table>
+            </table>newfile.php
             
         </section>
 	 </body>
